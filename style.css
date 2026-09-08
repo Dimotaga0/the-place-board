@@ -24,7 +24,11 @@ body {
   color: var(--text);
   font-family: 'Space Grotesk', Arial, sans-serif;
   background:
-    radial-gradient(circle at 10% 0%, rgba(113, 104, 255, 0.12), transparent 30rem),
+    radial-gradient(
+      circle at 10% 0%,
+      rgba(113, 104, 255, 0.12),
+      transparent 30rem
+    ),
     var(--bg);
 }
 
@@ -39,14 +43,55 @@ button {
 /* Header */
 
 .topbar {
-  min-height: 74px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 24px;
+  min-height: 74px;
   padding: 14px clamp(18px, 4vw, 60px);
   border-bottom: 1px solid var(--line);
   background: rgba(7, 8, 14, 0.94);
+}
+
+.brand {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+}
+
+.brand span {
+  display: inline-block;
+  font-family: 'Space Grotesk', Arial, sans-serif;
+  font-size: clamp(30px, 3vw, 42px);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -2px;
+  background: linear-gradient(
+    100deg,
+    #ff6b8a 0%,
+    #9b7cff 45%,
+    #38d9ff 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  text-shadow: 0 0 22px rgba(122, 111, 255, 0.18);
+}
+
+.brand small {
+  display: inline-block;
+  color: #9fa4b5;
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  white-space: nowrap;
 }
 
 .topbar-right,
@@ -152,7 +197,7 @@ main {
   width: 100%;
   height: auto;
   min-height: 500px;
-  cursor: grab;
+  cursor: crosshair;
   touch-action: none;
 }
 
@@ -224,7 +269,10 @@ main {
   border: 2px solid rgba(255, 255, 255, 0.3);
   border-radius: 8px;
   cursor: pointer;
-  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
 .color-btn:hover {
@@ -244,8 +292,8 @@ main {
   border: 1px solid #ff6b6b;
   border-radius: 8px;
   background: rgba(255, 107, 107, 0.2);
-  text-align: center;
   font-size: 0.9rem;
+  text-align: center;
 }
 
 /* Responsive */
@@ -286,22 +334,4 @@ main {
     width: 50px;
     height: 50px;
   }
-}
-
-.brand {
-  display: flex !important;
-  align-items: baseline !important;
-  gap: 8px !important;
-  margin: 0 !important;
-  padding: 0 !important;
-  color: #ffffff !important;
-  text-decoration: none !important;
-}
-
-.brand span,
-.brand small {
-  text-decoration: none !important;
-  background: none !important;
-  -webkit-background-clip: initial !important;
-  background-clip: initial !important;
 }
