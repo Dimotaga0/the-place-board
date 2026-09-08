@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>The Place by Dimotaga</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div
+  class="brand"
+  aria-label="The Place by Dimotaga"
+  style="
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    margin: 0;
+    padding: 0;
+  "
+>
+  <span
+    style="
+      display: inline-block;
+      font-family: 'Space Grotesk', Arial, sans-serif;
+      font-size: clamp(30px, 3vw, 42px);
+      font-weight: 700;
+      line-height: 1;
+      letter-spacing: -2px;
+      background: linear-gradient(100deg, #ff6b8a 0%, #9b7cff 45%, #38d9ff 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      color: transparent;
+      text-shadow: 0 0 22px rgba(122, 111, 255, 0.18);
+    "
+  >
+    The Place
+  </span>
+
+  <small
+    style="
+      display: inline-block;
+      color: #9fa4b5;
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      font-weight: 500;
+      line-height: 1;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    "
+  >
+    by Dimotaga
+  </small>
+</div>
+
+    <div class="topbar-right">
+      <div id="user-info" class="user-info hidden">
+        <img id="user-avatar" src="" alt="Avatar Discord" />
+        <div class="user-details">
+          <span id="username"></span>
+          <span id="pixels-count">Pixels : 0/10</span>
+        </div>
+        <button id="logout-btn" type="button">Déconnexion</button>
+      </div>
+
+      <button id="login-btn" type="button">Se connecter avec Discord</button>
+    </div>
+  </header>
+
+  <main>
+    <section id="canvas-container">
+      <canvas id="place-canvas" width="600" height="600" aria-label="Grille The Place"></canvas>
+    </section>
+
+    <div class="view-controls">
+      <button id="zoom-out-btn" type="button" aria-label="Zoom arrière">−</button>
+      <button id="reset-view-btn" type="button">Réinitialiser</button>
+      <button id="zoom-in-btn" type="button" aria-label="Zoom avant">+</button>
+      <span id="zoom-level">100%</span>
+    </div>
+
+    <section id="colors-panel" class="hidden">
+      <h2>Choisis ta couleur</h2>
+      <div id="colors-grid"></div>
+      <div id="cooldown-msg" class="hidden"></div>
+    </section>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/index.min.js"></script>
+<script src="client.js"></script>
+</body>
+</html>
