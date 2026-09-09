@@ -12,9 +12,9 @@
   const REGEN_MS = 5 * 60 * 1000;
 
   const COLORS = [
-    '#000000',
+    '#FFFFF',
     '#6B7280',
-    '#FFFFFF',
+    '#000000',
     '#8B4513',
     '#FF4500',
     '#FF8A00',
