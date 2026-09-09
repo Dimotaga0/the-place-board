@@ -9,7 +9,7 @@
 
   const GRID_SIZE = 200;
   const MAX_PIXELS = 10;
-  const REGEN_MS = 500;
+  const REGEN_MS = 5 * 1000;
 
   const COLORS = [
     '#FFFFFF',
