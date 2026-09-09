@@ -266,27 +266,62 @@
   }
 
   async function loadBoard() {
+  const PAGE_SIZE = 1000;
+  const allPixels = [];
+  let from = 0;
+
+  while (true) {
     const { data, error } = await supabaseClient
       .from('board_pixels')
       .select('x, y, color')
       .gte('x', 0)
       .lte('x', GRID_SIZE - 1)
       .gte('y', 0)
-      .lte('y', GRID_SIZE - 1);
+      .lte('y', GRID_SIZE - 1)
+      .order('x', { ascending: true })
+      .order('y', { ascending: true })
+      .range(from, from + PAGE_SIZE - 1);
 
     if (error) {
       console.error('Impossible de charger le plateau :', error);
+      alert(`Erreur de chargement du plateau : ${error.message}`);
       return;
     }
 
-    pixels.clear();
+    if (!data || data.length === 0) {
+      break;
+    }
 
-    data.forEach((pixel) => {
-      pixels.set(`${pixel.x},${pixel.y}`, pixel.color);
-    });
+    allPixels.push(...data);
 
-    render();
+    if (data.length < PAGE_SIZE) {
+      break;
+    }
+
+    from += PAGE_SIZE;
   }
+
+  const nextPixels = new Map();
+
+  allPixels.forEach((pixel) => {
+    if (
+      Number.isInteger(pixel.x) &&
+      Number.isInteger(pixel.y) &&
+      typeof pixel.color === 'string'
+    ) {
+      nextPixels.set(`${pixel.x},${pixel.y}`, pixel.color);
+    }
+  });
+
+  pixels.clear();
+
+  nextPixels.forEach((color, key) => {
+    pixels.set(key, color);
+  });
+
+  console.log(`Plateau chargé : ${pixels.size} pixels`);
+  render();
+}
 
   async function createOrLoadProfile(user) {
     const { data: existing, error } = await supabaseClient
