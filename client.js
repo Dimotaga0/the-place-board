@@ -1,6 +1,6 @@
 (() => {
   const SUPABASE_URL = 'https://wgoyfhebueoynhwmmvuc.supabase.co';
-  const SUPABASE_PUBLISHABLE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Indnb3lmaGVidWVveG5od21tdnVjIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODg4MTExNzEsImV4cCI6MjEwNDM4NzE3MX0.aljvQ6mWGJqIz7gFhhMLCOnoOI12T1MODSILDpbVoFo';
+  const SUPABASE_PUBLISHABLE_KEY = 'sb_publishable_fTcE-8ofgC6Hz8fJudhy8w_SdeC_cu8';
 
   if (!window.supabase) {
     console.error('Supabase CDN non chargé.');
