@@ -8,7 +8,7 @@
   );
 
   const GRID_SIZE = 200;
-  const MAX_PIXELS = 10;
+  const MAX_PIXELS = 15;
   const REGEN_MS = 2 * 1000;
 
   const COLORS = [
